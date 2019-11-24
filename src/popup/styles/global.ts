@@ -1,6 +1,6 @@
 import {createGlobalStyle} from "styled-components"
-import {lightGray} from './modules/colors'
-import bootstrap from './bootstrap'
+import {lightGray} from '~styles/modules/colors'
+import bootstrap from '~styles/bootstrap'
 
 export default createGlobalStyle`
   ${bootstrap};

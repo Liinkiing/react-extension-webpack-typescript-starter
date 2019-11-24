@@ -20,6 +20,12 @@
       "~contentscript/*": [
         "src/contentscript/*"
       ],
+      "~popup/*": [
+        "src/popup/*"
+      ],
+      "~styles/*": [
+        "src/popup/styles/*"
+      ],
       "~background/*": [
         "src/background/*"
       ],
