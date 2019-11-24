@@ -4,12 +4,27 @@ A simple starter to bootstrap your next chrome extension.
 ## Usage
 
 ```bash
+$ yarn 
+# install dependencies
+
 $ yarn dev
 # launch files compilation in watch mode and an instance of React Devtool
 
 $ yarn build
 # build production-ready files into a 'build' folder 
 ```
+
+### In Chrome web browser
+1. Go to: [**chrome://extensions**](chrome://extensions)
+2. Toggle: "**developer mode**" on
+3. Click on: "**Load unpacked**"
+4. Select the newly created folder "**build**" from the project folder
+
+### In Firefox web browser
+1. Go to: [**about:debugging**](about:debugging)
+2. Select: "**Enable add-on debugging**"
+3. Click on: "**Load Temporary Add-on…**"
+4. Open the newly created folder "**build**" from the project folder, and choose the "**manifest.json**" file
 
 ## React DevTools
 By default, using React Devtools within a Chrome extension can be a tedious 
