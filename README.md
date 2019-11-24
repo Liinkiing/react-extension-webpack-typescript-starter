@@ -92,3 +92,23 @@ Because the `@types` directory is declared in `typeRoots`, Typescript will no lo
 ## Tooling
 The template includes [Prettier](https://prettier.io/), [ESLint](https://eslint.org/) (with [Typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)), [Babel](https://babeljs.io/) and [Husky](https://github.com/typicode/husky).
 All their related configurations are in the `*rc` files.
+
+## Troubleshooting
+When you open for the first time the popup extension and you see nothing, 
+inspect the popup extension (right click to the extension icon > Inspect popup)
+
+If you see an error like this on your console
+![error](https://miro.medium.com/max/1625/1*XOZ-S9jMg84f1Dmf5hwB5Q.png)
+It's because of a **C**ontent **S**ecurity **P**olicy. 
+By default, Chrome blocks inline scripts in extension, so the React 
+app may not work. To make it works, copy the hash that the error gave you
+and paste it in the `manifest.json` file, in the `content_security_policy` like this
+```json
+{
+  ...
+  "content_security_policy": "connect-src 'self' ws://localhost:*; script-src 'self' 'unsafe-eval' '<YOUR_HASH_HERE>'; object-src 'self'",
+  ... 
+}
+```
+
+Rebuild the extension and it should works
