@@ -22,7 +22,7 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.tsx$/,
-        use: 'babel-loader',
+        use: ['babel-loader', 'eslint-loader'],
         exclude: /node_modules/
       },
     ]
