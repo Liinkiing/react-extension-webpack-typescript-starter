@@ -1,17 +1,20 @@
-import {css, CSSObject, FlattenSimpleInterpolation} from 'styled-components'
+import { css, CSSObject, FlattenSimpleInterpolation } from 'styled-components'
 
-export const breakpoint = (size: 'mobile' | 'tablet' | 'desktop', innerCss: FlattenSimpleInterpolation | TemplateStringsArray | CSSObject) => {
-  let px;
+export const breakpoint = (
+  size: 'mobile' | 'tablet' | 'desktop',
+  innerCss: FlattenSimpleInterpolation | TemplateStringsArray | CSSObject
+) => {
+  let px
   switch (size) {
-    case "mobile":
-      px = 320;
-      break;
-    case "tablet":
-      px = 768;
-      break;
-    case "desktop":
-      px = 992;
-      break;
+    case 'mobile':
+      px = 320
+      break
+    case 'tablet':
+      px = 768
+      break
+    case 'desktop':
+      px = 992
+      break
   }
 
   return css`
