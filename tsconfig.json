@@ -8,6 +8,7 @@
       "dom",
       "es2017"
     ],
+    "jsx": "react",
     "moduleResolution": "node",
     "allowJs": true,
     "outDir": "build",
