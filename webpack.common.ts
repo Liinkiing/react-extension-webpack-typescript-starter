@@ -1,7 +1,11 @@
 import path from 'path';
 import webpack from 'webpack';
 import {TsconfigPathsPlugin} from 'tsconfig-paths-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+
+const src = path.join(__dirname, 'src')
+const build = path.join(__dirname, 'build')
 
 const config: webpack.Configuration = {
   mode: 'development',
@@ -12,7 +16,7 @@ const config: webpack.Configuration = {
   },
   target: 'node',
   output: {
-    path: path.join(__dirname, 'build'),
+    path: build,
     filename: '[name].js',
   },
   module: {
@@ -26,10 +30,22 @@ const config: webpack.Configuration = {
   },
   resolve: {
     plugins: [new TsconfigPathsPlugin()],
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin()
+    new ForkTsCheckerWebpackPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(src, 'assets'),
+        to: path.join(build, 'assets'),
+        test: /\.(jpg|jpeg|png|gif|svg)?$/,
+      },
+      {
+        from: path.join(path.resolve(src, '..'), 'manifest.json'),
+        to: path.join(build, 'manifest.json'),
+        toType: 'file',
+      }
+    ])
   ]
 };
 
