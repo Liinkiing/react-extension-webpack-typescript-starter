@@ -1,0 +1,48 @@
+{
+  "name": "react-extension-webpack-typescript-starter",
+  "version": "1.0.0",
+  "description": "A simple starter to kickstart your next Chrome extension powered by Typescript and React",
+  "repository": "https://github.com/Liinkiing/extension-webpack-typescript-starter",
+  "author": "Omar Jbara <omar.jbara2@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "webpack",
+    "typescript",
+    "template",
+    "starter",
+    "boilerplate",
+    "chrome-extension",
+    "extension"
+  ],
+  "scripts": {
+    "build:contentscript-background": "cross-env NODE_ENV=production webpack --colors --config webpack.prod.ts",
+    "build": "yarn build:contentscript-background",
+    "watch:contentscript-background": "cross-env NODE_ENV=development webpack --colors --watch --config webpack.common.ts",
+    "watch": "concurrently yarn:watch:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@types/chrome": "^0.0.91",
+    "@types/node": "^12.12.12",
+    "@types/webpack": "^4.41.0",
+    "@types/webpack-merge": "^4.1.5",
+    "babel-loader": "^8.0.6",
+    "fork-ts-checker-webpack-plugin": "^3.1.0",
+    "nodemon": "^2.0.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.2",
+    "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.7.2",
+    "webpack": "4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3"
+  }
+}
